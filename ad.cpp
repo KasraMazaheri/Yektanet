@@ -38,6 +38,6 @@ public:
         advertiser->incViews();
     }
     string describeMe() {
-        return ("This class is meant to represent and ad.");
+        return ("This class is meant to represent an ad.");
     }
 };
