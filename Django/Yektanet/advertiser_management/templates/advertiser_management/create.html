@@ -1,0 +1,14 @@
+<h1>{{ 'Create your own ad!' }}</h1>
+
+<form action="{% url 'Create' %}" method="post">
+{% csrf_token %}
+	<label for="1">{{ "Advertiser" }}</label>
+	<input type="text" name="advertiser" id="1" value="Type Something"><br>
+	<label for="2">{{ "Title" }}</label>
+	<input type="text" name="title" id="2" value="Type Something"><br>
+	<label for="3">{{ "Image" }}</label>
+	<input type="text" name="image" id="3" value="Type Something"><br>
+	<label for="4">{{ "Url" }}</label>
+	<input type="text" name="link" id="4" value="Type Something"><br>
+<input type="submit" value="save">
+</form>
