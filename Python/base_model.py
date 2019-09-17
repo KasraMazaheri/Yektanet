@@ -2,7 +2,7 @@
 class BaseAdvertising:
 	'This class is the base of our other classes.'
 	def __init__(self):
-		print("Holy shit")
+		pass
 	def getClicks(self):
 		return self._clicks
 	def getViews(self):
