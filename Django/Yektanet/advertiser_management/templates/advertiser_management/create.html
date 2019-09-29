@@ -1,6 +1,6 @@
 <h1>{{ 'Create your own ad!' }}</h1>
 
-<form action="{% url 'Create' %}" method="post">
+<form action="{% url 'create' %}" method="post">
 {% csrf_token %}
 	<label for="1">{{ "Advertiser" }}</label>
 	<input type="text" name="advertiser" id="1" value="Type Something"><br>

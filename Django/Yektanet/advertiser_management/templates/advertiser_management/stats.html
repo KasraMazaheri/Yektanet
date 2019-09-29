@@ -1,0 +1,62 @@
+<head>
+	<title>Statistics</title>
+</head>
+<table border = 1 cellpadding = 5>
+	<caption>{{ 'Number of Clicks' }}</caption>
+	<tr bgcolor = "#a2a7ef" align = "center">
+		{% for c in header_table %}
+			<td>{{ c }}</td>
+		{% endfor %}
+	</tr>
+	{% for r in clicks_table %}
+		<tr bgcolor = "#f0fafb" align = "center">
+			{% for c in r %}
+				<td>{{ c }}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
+<table border = 1 cellpadding = 5>
+	<caption>{{ 'Number of Views' }}</caption>
+	<tr bgcolor = "#a2a7ef" align = "center">
+		{% for c in header_table %}
+			<td>{{ c }}</td>
+		{% endfor %}
+	</tr>
+	{% for r in views_table %}
+		<tr bgcolor = "#f0fafb" align = "center">
+			{% for c in r %}
+				<td>{{ c }}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
+<table border = 1 cellpadding = 5>
+	<caption>{{ 'Ratio of Clicks to Views in Descending Order' }}</caption>
+	<tr bgcolor = "#a2a7ef" align = "center">
+		{% for c in header_2_table %}
+			<td>{{ c }}</td>
+		{% endfor %}
+	</tr>
+	{% for r in ratio_table %}
+		<tr bgcolor = "#f0fafb" align = "center">
+			{% for c in r %}
+				<td>{{ c }}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
+<table border = 1 cellpadding = 5>
+	<caption>{{ 'Average Time Between Clicking and Viewing' }}</caption>
+	<tr bgcolor = "a2a7ef" align = "center">
+		<td>Ad</td>
+		<td>Time</td>
+	</tr>
+	{% for r in average_table %}
+		<tr bgcolor = "#f0fafb" align = "center">
+			{% for c in r %}
+				<td>{{ c }}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
