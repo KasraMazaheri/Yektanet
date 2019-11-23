@@ -2,7 +2,11 @@ from django.shortcuts import render, get_object_or_404, Http404
 from django.http import HttpResponse
 from django.views.generic.base import RedirectView, TemplateView
 
+from rest_framework import viewsets, permissions, authentication
+from rest_framework.response import Response
+
 from .models import Advertiser, Ad, Click, View
+from .serializers import AdvertiserSerializer, AdSerializer
 
 def get_user_ip(request):
     ip = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -151,4 +155,23 @@ class StatsView(TemplateView):
         
         return context
 
+class ModelView(viewsets.ViewSet):
+    authentication_classes = [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+    def list(self, request):
+        queryset = self.Model.objects.all()
+        serializer = self.ModelSerializer(queryset, many = True)
+        return  Response(serializer.data)
 
+    def retrieve(self, request, pk):
+        obj = get_object_or_404(self.Model, pk = pk)
+        serializer = self.ModelSerializer(obj)
+        return Response(serializer.data)
+    
+class AdView(ModelView):
+    Model = Ad
+    ModelSerializer = AdSerializer
+
+class AdvertiserView(ModelView):
+    Model = Advertiser
+    ModelSerializer = AdvertiserSerializer
